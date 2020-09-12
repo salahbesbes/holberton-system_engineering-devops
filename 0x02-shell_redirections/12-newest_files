@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -plt | grep -v /
+ls -plt | grep -v / | head -4
