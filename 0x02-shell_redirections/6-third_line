@@ -1,2 +1,2 @@
 #!/bin/bash
-head -3 6-third_line
+head -n 3 my. txt | tail -n 1
