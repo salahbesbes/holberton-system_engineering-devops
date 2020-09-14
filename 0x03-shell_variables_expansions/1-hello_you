@@ -1,3 +1,4 @@
 #!/bin/bash
-echo "hello" $(id -nu)
+userName=$(id -nu)
+echo "hello" $userName
 
