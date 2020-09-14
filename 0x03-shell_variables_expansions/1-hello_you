@@ -1,4 +1,2 @@
 #!/bin/bash
-userName=$(id -nu)
-echo "hello" $userName
-
+echo "hello $(id -un)"
