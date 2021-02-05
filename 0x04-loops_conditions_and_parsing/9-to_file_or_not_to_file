@@ -29,7 +29,7 @@ then
 	fi
 	# check if it is regular file or not
 	regular=$(test -f $holberton; echo $?)
-	if (( $regular == 0 ))
+	if (( regular == 0 ))
 	then
 		echo "holbertonschool is a regular file"
 	fi
