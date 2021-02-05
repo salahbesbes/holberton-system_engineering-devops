@@ -4,6 +4,6 @@
 current_dir="$(ls)"
 
 for file in $current_dir ; do
-	FileName=$(echo $file | cut -d "-" -f 2)
-	echo $FileName
+	FileName=$(echo "$file" | cut -d "-" -f 2)
+	echo "$FileName"
 done
