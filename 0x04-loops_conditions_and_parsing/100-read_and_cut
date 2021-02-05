@@ -8,15 +8,15 @@ managingLine ()
 	firstArgument=$1
 	IFS=':'     # hyphen (-) is set as delimiter
 	# str is read into an array as tokens separated by IFS
-	read -ra ADDR <<< $firstArgument
+	read -ra ADDR <<< "$firstArgument"
 	newstring=${ADDR[0]}:${ADDR[2]}:${ADDR[5]}
 	echo "$newstring"
 }
 
 # read from file
 n=1
-while read line; do
+while read -r line; do
 	# reading each line
 	managingLine "$line"
 	n=$((n+1))
-done < $filename
+done < "$filename"
