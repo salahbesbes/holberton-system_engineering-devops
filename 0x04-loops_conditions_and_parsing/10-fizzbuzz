@@ -7,18 +7,18 @@ while [[ $i -le 100 ]]; do
 	then
 		if (( i % 15 == 0 ));
 		then
-			echo "FizzBuzz "
+			echo "FizzBuzz"
 		else
-			echo "Fizz "
+			echo "Fizz"
 		fi
 	elif (( i % 5 == 0 ));
 	then
 		if (( i % 15 == 0 ));
 		then
-			echo "FizzBuzz "
+			echo "FizzBuzz"
 		elif (( i != 100 ))
 		then
-			echo "Buzz "
+			echo "Buzz"
 		else
 			echo "Buzz"
 		fi
