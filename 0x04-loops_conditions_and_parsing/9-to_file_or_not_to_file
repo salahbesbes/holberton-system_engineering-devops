@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# give some information about certain file
+
+holberton="holbertonschool"
+current_dir="$(ls)"
+
+# search for the file in the current diectory
+for file in $current_dir ; do
+	filename=$(echo "$file" | cut -d "-" -f 2)
+	if [[ $filename = "$holberton" ]]
+	then
+		found=1
+		break
+	else
+		found=0
+	fi
+done
+
+# check if the file exist or not
+if [ $found = 1 ]
+then
+	echo "holbertonschool file exists"
+	# check if its empty or not
+	if [ -s $holberton ] # file is not empty = True
+	then
+		echo "holbertonschool file is not empty"
+	else
+		echo "holbertonschool file is empty"
+	fi
+	# check if it is regular file or not
+	regular=$(test -f $holberton; echo $?)
+	if (( $regular == 0 ))
+	then
+		echo "holbertonschool is a regular file"
+	fi
+	
+else
+	echo "holbertonschool file does not exist"
+fi
+
