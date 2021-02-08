@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print all pid running on system n a user-oriented format
+ps axu
