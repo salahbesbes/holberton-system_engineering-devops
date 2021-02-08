@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# seatch the pid of an other program by name; kill that program
+pid=$(pgrep -f "./7-highlander")
+kill -KILL "$pid"
