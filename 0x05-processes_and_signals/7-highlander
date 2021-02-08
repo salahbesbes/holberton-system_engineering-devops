@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# override the default comportment of the SIGTERM signal (from an other prog)
+#+if SIGINT is also provided the program wont stop iven within the terminal
+# width (ctr+c) 
+trap "echo I am invincible!!!" SIGTERM
+while true; do
+	echo "To infinity and beyond"
+	sleep 2
+done
