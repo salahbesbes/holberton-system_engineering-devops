@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+path="/var/run/holbertonscript.pid"
+pid=$$
+echo "$pid" > $path
+handle_int () {
+	echo "Y U no love me?!"
+}
+handle_term () {
+	echo "I hate the kill command"
+	kill -KILL "$pid"
+	rm -f "$path"
+}
+handle_quit () {
+	kill -KILL "$pid"
+	rm -f "$path"
+}
+
+trap handle_term TERM
+trap handle_int INT
+trap handle_int QUIT
+while true; do
+	echo "To infinity and beyond"
+	sleep 1
+done
