@@ -2,7 +2,9 @@
 # handle multiple trap 
 path="/var/run/holbertonscript.pid"
 pid=$$
+
 echo "$pid" > $path
+
 handle_int () {
 	echo "Y U no love me?!"
 }
@@ -16,9 +18,10 @@ handle_quit () {
 	rm -f "$path"
 }
 
-trap handle_term TERM
-trap handle_int INT
-trap handle_int QUIT
+trap handle_term SIGTERM
+trap handle_int SIGINT
+trap handle_quit SIGQUIT
+
 while true; do
 	echo "To infinity and beyond"
 	sleep 1
