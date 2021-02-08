@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kill program by his name using pkill 
+pkill -f "./4-to_infinity_and_beyond"
