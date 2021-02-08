@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print the pid's current program
+echo $$
