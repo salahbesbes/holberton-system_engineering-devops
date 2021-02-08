@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# print the \"PID bash\"of all process containg bash in their names
+pgrep  -l "bash"
