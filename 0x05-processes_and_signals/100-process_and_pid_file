@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# handle multiple trap 
 path="/var/run/holbertonscript.pid"
 pid=$$
 echo "$pid" > $path
