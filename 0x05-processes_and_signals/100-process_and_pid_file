@@ -10,12 +10,12 @@ handle_int () {
 }
 handle_term () {
 	echo "I hate the kill command"
-	kill -KILL "$pid"
-	rm -f "$path"
+	kill -9 "$pid"
+	sudo rm -f "$path"
 }
 handle_quit () {
-	kill -KILL "$pid"
-	rm -f "$path"
+	kill -9 "$pid"
+	sudo rm -f "$path"
 }
 
 trap handle_term SIGTERM
