@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# pings an IP address passed as an argument
 ip="$1"
 if [ -z "$1" ]
 then
