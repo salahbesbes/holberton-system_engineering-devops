@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# generate ssh key with fileName holberton and pass betty
+ssh-keygen -t rsa -f holberton -N betty -b 4096
