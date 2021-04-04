@@ -1,4 +1,4 @@
-# modefy a file using puppet
+# modefy a filee using puppet
 
 
 file_line { 'Turn off passwd auth':
