@@ -12,7 +12,7 @@ export HOSTNAME=2140-web-1
 path="/etc/nginx/sites-enabled/default"
 pattern="location \/ {"
 newinsert="add_header X-Served-By  $HOSTNAME;"
-sed -e "0,/$pattern/s//$pattern\n\t\t$newinsert/g" $path
+sed -ie "0,/$pattern/s//$pattern\n\t\t$newinsert/g" $path
 
 # restart nginx web server
 sudo service nginx restart
