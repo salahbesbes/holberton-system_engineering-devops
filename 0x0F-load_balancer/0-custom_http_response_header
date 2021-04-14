@@ -5,10 +5,9 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 sudo chown -R $"USER":$"USER" /var/www/
-sudo chown -R $"USER":$"USER" /var/www/
+sudo chown -R $"USER":$"USER" /etc/nginx/
 
 # rewrite header response
-export HOSTNAME=2140-web-1
 path="/etc/nginx/sites-enabled/default"
 pattern="location \/ {"
 newinsert="add_header X-Served-By  $HOSTNAME;"
