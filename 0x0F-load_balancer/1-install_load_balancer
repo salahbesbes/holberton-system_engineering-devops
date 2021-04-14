@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# config our haproxy
+sudo apt-get update
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-1.8
+sudo apt-get install haproxy=1.8.\*
+
+echo "
+frontend http
+  bind *:80
+  mode http
+  timeout client 60s
+  default_backend web-backend
+
+backend web-backend
+   timeout connect 10s
+   timeout server 100s
+   mode http
+   balance roundrobin
+   server web1 34.75.197.138:80
+   server web2 104.196.173.55:80
+" > ~/newconf.cfg
+
+sudo haproxy -f ~/newconf.cfg
