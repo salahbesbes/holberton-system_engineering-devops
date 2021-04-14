@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 # config our haproxy
-sudo apt-get update
-sudo apt-get install --no-install-recommends software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-1.8
-sudo apt-get install haproxy=1.8.\*
+apt-get update
+apt-get install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-1.8
+apt-get -y update
+apt-get install haproxy=1.8.\*
 
 echo "
 frontend http
@@ -21,4 +22,4 @@ backend web-backend
    server web2 104.196.173.55:80
 " > ~/newconf.cfg
 
-sudo haproxy -f ~/newconf.cfg
+haproxy -f ~/newconf.cfg
