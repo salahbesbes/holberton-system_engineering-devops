@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# write a custom header response
+export HOSTNAME=2140-web-1
+path="/etc/nginx/sites-enabled/default"
+pattern="location \/ {"
+newinsert="add_header X-Served-By  $HOSTNAME;"
+sed -e "0,/$pattern/s//$pattern\n\t\t$newinsert/g" $path
+
