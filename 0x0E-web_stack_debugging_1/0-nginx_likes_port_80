@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# install nginx server
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+sed -i 's/ ipv6only=on/''/g' /etc/nginx/sites-enabled/default
+service nginx restart
