@@ -3,18 +3,19 @@
 
 #install inginx
 sudo apt-get update -y
-sudo apt-get upgrade
+# sudo apt-get upgrade -y
 sudo apt-get install nginx -y
-sudo chown -R $"USER":$"USER" /var/www/
-sudo chown -R $"USER":$"USER" /etc/nginx/
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chown -R "$USER":"$USER" /etc/nginx/
 echo "Holberton School" > /var/www/html/index.html
-line="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;"
-sudo sed -i "26i $line" /etc/nginx/sites-available/default
 # rewrite header response
-path="/etc/nginx/sites-enabled/default"
+path="/etc/nginx/sites-available/default"
 pattern="location \/ {"
 newinsert="add_header X-Served-By  $HOSTNAME;"
 sed -ie "0,/$pattern/s//$pattern\n\t\t$newinsert/g" $path
 
 # restart nginx web server
+# sed -i 's/8080/80/g' $path
+# sed -i 's/ ipv6only=on/''/g' $path
+
 sudo service nginx restart
