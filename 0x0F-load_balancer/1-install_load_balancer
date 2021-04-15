@@ -18,6 +18,6 @@ backend web-backend
    balance roundrobin
    server web1 34.75.197.138:80
    server web2 104.196.173.55:80
-" > ~/newconf.cfg
+" >> /etc/haproxy/haproxy.cfg
 
-sudo haproxy -f ~/newconf.cfg
+sudo /etc/init.d/haproxy restart
