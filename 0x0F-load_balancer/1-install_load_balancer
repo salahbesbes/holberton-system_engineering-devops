@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # config our haproxy
-sudo apt-get -y install --no-install-recommends software-properties-common
-sduo add-apt-repository -y ppa:vbernat/haproxy-1.8
 sudo apt-get -y update
-sudo apt-get -y install haproxy=1.8.\*
+sudo apt-get -y install haproxy
 
+echo "ENABLED=1" >> /etc/default/haproxy
 echo "
 frontend http
   bind *:80
