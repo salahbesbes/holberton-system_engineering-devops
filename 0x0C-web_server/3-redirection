@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Installing Nginx on Server and redirect
+sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get install -y nginx
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chown -R "$USER":"$USER" /etc/nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+
+# redict config
+redirection="\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=ibIjlXSagME&t=2s&ab_channel=LeCERA;\n\t}"
+path='/etc/nginx/sites-available/default'
+pattern='listen \[::\]:80'
+sudo sed -i "/$pattern/ a \ $redirection" $path
+# restart service
+sudo service nginx restart
