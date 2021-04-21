@@ -7,7 +7,7 @@ sudo chown -R "$USER":"$USER" /etc/nginx
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
 
 # redict config
-redirection="\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=ibIjlXSagME&t=2s&ab_channel=LeCERA;\n\t}"
+redirection="rewrite /redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent;"
 path='/etc/nginx/sites-available/default'
 pattern='listen \[::\]:80'
 sudo sed -i "/$pattern/ a \ $redirection" $path
