@@ -10,3 +10,4 @@ echo "Ceci n\'est pas une page" | sudo tee /usr/share/nginx/html/404.html
 path='/etc/nginx/sites-available/default'
 pattern='listen \[::\]:80'
 sudo sed -i "/$pattern/ a \ $redirection" $path
+sudo service restart
