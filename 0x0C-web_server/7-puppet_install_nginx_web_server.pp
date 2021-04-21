@@ -1,7 +1,7 @@
 # automatic install and config nginx
 exec { 'update':
   command => 'apt-get apdate -y',
-  path    => '/bin/:/usr/bin';
+  path    => '/bin/:/usr/bin/';
 }->
 package { 'nginx':
   ensure   => installed,
