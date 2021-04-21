@@ -6,7 +6,7 @@ sudo chown -R "$USER":"$USER" /var/www/
 sudo chown -R "$USER":"$USER" /etc/nginx
 echo "Holberton School" > /var/www/html/index.html
 # add this line to server properperties
-redirection="\tlocation /redirect_me { \
+redirection="location /redirect_me { \
 \t\treturn 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;\
 \t\t}"
 # path='/etc/nginx/sites-available/default'
