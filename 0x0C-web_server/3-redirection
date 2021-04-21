@@ -12,6 +12,6 @@ redirection="\tlocation /redirect_me { \
 # path='/etc/nginx/sites-available/default'
 # pattern='listen \[::\]:80'
 #sudo sed -i "/$pattern/ a \ $redirection" $path
-sudo sed -i "30i $REDIRECT_STRING" /etc/nginx/sites-available/default
+sudo sed -i "30i $redirection" /etc/nginx/sites-available/default
 # restart service
 sudo service nginx restart
