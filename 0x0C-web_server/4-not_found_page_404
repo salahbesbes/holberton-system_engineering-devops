@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
-# Installing Nginx on Server and redirect
-sudo apt-get update -y
-sudo apt-get install -y nginx
-sudo chown -R "$USER":"$USER" /var/www/
-sudo chown -R "$USER":"$USER" /etc/nginx
-echo "Holberton School" > /var/www/html/index.html
-notfound="\terror_page 404 /custom_404.html;\n location = /custom_404.html {\n root /usr/share/nginx/html;\n internal;\n}\n"
+# Configures ngnix server to have a custom 404 page containing the string
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo service nginx start
+NOTFOUND="error_page 404 /custom_404.html;\n location = /custom_404.html {\n root /usr/share/nginx/html;\n internal;\n}\n"
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-path='/etc/nginx/sites-available/default'
-pattern='listen \[::\]:80'
-sudo sed -i "/$pattern/ a \ $redirection" $path
+sudo sed -i "33i$NOTFOUND" /etc/nginx/sites-available/default
 sudo service nginx restart
