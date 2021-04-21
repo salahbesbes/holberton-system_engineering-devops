@@ -1,15 +1,15 @@
 # automatic install and config nginx
 exec { 'update':
-  command => 'sudo apt-get update',
-  path    => '/usr/bin/:/usr/local/bin/:/bin/';
-} ->
+  command => '/usr/bin/apt-get update',
+}
+->
 package { 'nginx':
   ensure   => present,
   provider => apt;
 } ->
 file { '/etc/nginx/sites-enabled/default':
   ensure => link,
-  path   => '/etc/nginx/sites-available/default';
+  target => '/etc/nginx/sites-available/default';
 }->
 file { '/usr/www/html/index.html':
   ensure  => file,
