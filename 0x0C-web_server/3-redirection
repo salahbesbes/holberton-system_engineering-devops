@@ -5,13 +5,13 @@ sudo apt-get install -y nginx
 sudo chown -R "$USER":"$USER" /var/www/
 sudo chown -R "$USER":"$USER" /etc/nginx
 echo "Holberton School" > /var/www/html/index.html
-sudo service nginx restart
 # add this line to server properperties
 redirection="\tlocation /redirect_me { \
 \t\treturn 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;\
 \t\t}"
-path='/etc/nginx/sites-available/default'
-pattern='listen \[::\]:80'
-sudo sed -i "/$pattern/ a \ $redirection" $path
+# path='/etc/nginx/sites-available/default'
+# pattern='listen \[::\]:80'
+#sudo sed -i "/$pattern/ a \ $redirection" $path
+sudo sed -i "30i $REDIRECT_STRING" /etc/nginx/sites-available/default
 # restart service
 sudo service nginx restart
