@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# Installing Nginx on Server and redirect
+sudo apt-get update -y
+sudo apt-get install -y nginx
+sudo chown -R "$USER":"$USER" /var/www/
+sudo chown -R "$USER":"$USER" /etc/nginx
+echo "Holberton School" > /var/www/html/index.html
+notfound="\terror_page 404 /custom_404.html;\n location = /custom_404.html {\n root /usr/share/nginx/html;\n internal;\n}\n"
+echo "Ceci n\'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+path='/etc/nginx/sites-available/default'
+pattern='listen \[::\]:80'
+sudo sed -i "/$pattern/ a \ $redirection" $path
