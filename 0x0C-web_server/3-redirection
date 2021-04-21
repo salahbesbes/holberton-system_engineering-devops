@@ -4,12 +4,13 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y nginx
 sudo chown -R "$USER":"$USER" /var/www/
 sudo chown -R "$USER":"$USER" /etc/nginx
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Holberton School" > /var/www/html/index.html
 
-# redict config
+# add this line to server properperties
 redirection="rewrite /redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ permanent 301;"
 path='/etc/nginx/sites-available/default'
 pattern='listen \[::\]:80'
 sudo sed -i "/$pattern/ a \ $redirection" $path
 # restart service
 sudo service nginx restart
+sudo service nginx reload
