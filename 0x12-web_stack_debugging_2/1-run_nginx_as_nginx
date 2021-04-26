@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# create a new user (without password) and grant it all root privilage
+username=nginx
+adduser $username --disabled-password --gecos "" --quiet
+usermod -aG nginx $username
+sed '/80/8080' /etc/nginx/sites-available/default
