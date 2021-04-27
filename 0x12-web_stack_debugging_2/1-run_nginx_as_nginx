@@ -4,5 +4,5 @@ pidof apache2 | xargs kill
 sed -i '1i  user nginx;\n' /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 chown -R nginx:nginx /etc/nginx
-chmod +rw /etc/nginx/nginx.conf
+# chmod +rw /etc/nginx/nginx.conf
 su -c 'service nginx start' nginx
