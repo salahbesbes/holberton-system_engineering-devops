@@ -2,4 +2,4 @@
 # create a new user (without password) and grant it all root privilage
 newuser=$1
 adduser nginx --disabled-password --gecos "" --quiet
-usermod -aG sudo "$newuser"
+su -c whoami nginx
