@@ -4,7 +4,7 @@ username=nginx
 # adduser $username --disabled-password --gecos "" --quiet
 
 # chown -R "$username":"$username" /var/www
-
+sudo service nginx stop
 for pid in $(pidof apache2); do
     kill "$pid"
 done
@@ -14,4 +14,4 @@ sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 
 chown -R $username:$username /etc/nginx
 chmod +rw /etc/nginx/nginx.conf
-sudo service nginx restart -u "$username"
+sudo service nginx start -u "$username"
