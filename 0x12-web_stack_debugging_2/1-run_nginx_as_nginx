@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 # create a new user (without password) and grant it all root privilage
 username=nginx
-adduser $username --disabled-password --gecos "" --quiet
-usermod -aG nginx $username
-sed '/80/8080' /etc/nginx/sites-available/default
+# adduser $username --disabled-password --gecos "" --quiet
+
+chown -R "$username":"$username" /var/www/
+chown -R "$username":"$username" /etc/nginx/
+chown -R "$username":"$username" /var/log/nginx/
+pid=$(pidof apache2 | cut -d ' ' -f 3)
+kill "$pid"
+
+sed -i '1i  user nginx;\n' /etc/nginx/nginx.conf
+sed -i 's/80/8080/g' /etc/nginx/sites-available/default
+service nginx start
