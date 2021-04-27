@@ -5,10 +5,10 @@ username=nginx
 
 chown -R "$username":"$username" /var/www/
 chown -R "$username":"$username" /etc/nginx/
-chown -R "$username":"$username" /var/log/nginx/
+chmod +rw /etc/nginx/nginx.conf
 pid=$(pidof apache2 | cut -d ' ' -f 3)
 kill "$pid"
 
 sed -i '1i  user nginx;\n' /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
-service nginx start
+sudo service nginx start -u "$username"
