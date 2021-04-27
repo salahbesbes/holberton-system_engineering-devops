@@ -6,8 +6,9 @@ username=nginx
 chown -R "$username":"$username" /var/www/
 chown -R "$username":"$username" /etc/nginx/
 chmod +rw /etc/nginx/nginx.conf
-pid=$(pidof apache2 | cut -d ' ' -f 3)
-kill "$pid"
+for pid in $(pidof apache2); do
+    kill "$pid"
+done
 
 sed -i '1i  user nginx;\n' /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
