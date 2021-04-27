@@ -5,7 +5,7 @@ username=nginx
 
 # chown -R "$username":"$username" /var/www/
 # chown -R "$username":"$username" /etc/nginx/
-# chmod +rw /etc/nginx/nginx.conf
+chmod +rw /etc/nginx/nginx.conf
 for pid in $(pidof apache2); do
     kill "$pid"
 done
