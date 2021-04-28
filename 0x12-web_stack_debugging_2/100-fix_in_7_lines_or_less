@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # create a new user (without password) and grant it all root privilage
 # sudo sed -i '1i  user nginx;\n' /etc/nginx/nginx.conf
-pkill apache2 
-sudo sed -i 's/80/8080/g' /etc/nginx/sites-enable/default
+sudo sed -i 's/80/8080/g' /etc/nginx/sites-enabled/default
 chmod +rw /etc/nginx/nginx.conf
 chown -R nginx:nginx /etc/nginx
+pkill apache2 
 su -c 'service nginx start' nginx
