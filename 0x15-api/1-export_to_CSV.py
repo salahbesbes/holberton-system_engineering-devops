@@ -28,4 +28,5 @@ if __name__ == "__main__":
             row_to_write = [emp_id, employee_name,
                             todo.get('completed'),
                             todo.get('title')]
+
             employee_writer.writerow(row_to_write)
