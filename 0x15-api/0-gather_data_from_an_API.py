@@ -6,8 +6,9 @@ import sys
 if __name__ == "__main__":
 
     emp_id = sys.argv[1]
-    todo_list = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
-                             .format(emp_id)).json()
+    todo_list = requests.get(
+        'https://jsonplaceholder.typicode.com/users/{}/todos'
+        .format(emp_id)).json()
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                             .format(emp_id)).json()
     employee_name = employee.get('name')
