@@ -16,6 +16,7 @@ if __name__ == "__main__":
             todo_list = requests.get(
                 'https://jsonplaceholder.typicode.com/users/{}/todos'
                 .format(user_id)).json()
+
             array_todo = []
             for todo in todo_list:
                 tmp = {'task': todo.get('title'),
