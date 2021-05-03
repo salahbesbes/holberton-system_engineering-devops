@@ -18,7 +18,7 @@ if __name__ == "__main__":
             .format(emp_id)).json()
         employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                                 .format(emp_id)).json()
-        employee_name = employee.get('name')
+        employee_name = employee.get('username')
 
         for todo in todo_list:
             row_to_write = [emp_id, employee_name,
