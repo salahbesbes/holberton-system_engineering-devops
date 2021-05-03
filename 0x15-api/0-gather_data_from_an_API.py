@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """ requests module """
 import requests
-from sys import argv
+import sys
 
 if __name__ == "__main__":
 
-    emp_id = argv[1]
+    emp_id = sys.argv[1]
     todo_list = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
                              .format(emp_id)).json()
     employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
