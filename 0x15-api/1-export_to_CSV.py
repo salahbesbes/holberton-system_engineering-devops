@@ -15,12 +15,12 @@ if __name__ == "__main__":
                                      delimiter=',',
                                      quotechar='"',
                                      quoting=csv.QUOTE_ALL)
-        response = requests.request(
+        response = requests.get(
             'get',
             'https://jsonplaceholder.typicode.com/users/{}/todos'.format(emp_id))
-        res = requests.request('get',
-                               'https://jsonplaceholder.typicode.com/users/{}'
-                               .format(emp_id))  # list of dicts
+        res = requests.get('get',
+                           'https://jsonplaceholder.typicode.com/users/{}'
+                           .format(emp_id))  # list of dicts
         todo_list = json.loads(response.text)
         employee_name = json.loads(res.text).get('name')
 
