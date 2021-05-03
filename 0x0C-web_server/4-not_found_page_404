@@ -2,12 +2,13 @@
 # Configures ngnix server to have a custom 404 page containing the string
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo service nginx start
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
+
+echo "Holberton School" > /var/www/html/index.html
 # create a custom page
-echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
-echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
 # add config to show custom_404 page 
 NOTFOUND="error_page 404 /custom_404.html;\n location = /custom_404.html {\n root /usr/share/nginx/html;\n internal;\n}\n"
-sudo sed -i "33i$NOTFOUND" /etc/nginx/sites-available/default
+path='/etc/nginx/sites-available/default'
+pattern='listen \[::\]:80'
+sudo sed -i "/$pattern/ a \ $NOTFOUND" $path
 sudo service nginx restart
