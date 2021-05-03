@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """ requests module """
 import json
-import requests
 from sys import argv
+
+import requests
 
 if __name__ == "__main__":
     if len(argv) != 2:
-        exit(1)
+        exit()
     emp_id = argv[1]
     response = requests.request(
         'get',

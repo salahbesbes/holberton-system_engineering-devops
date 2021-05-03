@@ -7,7 +7,7 @@ import requests
 
 if __name__ == "__main__":
     if len(argv) != 2:
-        exit(1)
+        exit()
 
     emp_id = argv[1]
     with open('todo_all_employees.json', mode='w') as employee_file:
