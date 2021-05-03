@@ -8,10 +8,12 @@ if __name__ == "__main__":
 
     emp_id = argv[1]
     with open('{}.json'.format(emp_id), mode='w') as employee_file:
-        todo_list = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
-                                 .format(emp_id)).json()
-        employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
-                                .format(emp_id)).json()
+        todo_list = requests.get(
+            'https://jsonplaceholder.typicode.com/users/{}/todos'
+            .format(emp_id)).json()
+        employee = requests.get(
+            'https://jsonplaceholder.typicode.com/users/{}'
+            .format(emp_id)).json()
 
         employee_name = employee.get('name')
         employee_username = employee.get('username')
