@@ -1,22 +1,16 @@
 #!/usr/bin/python3
 """ requests module """
-import json
+import requests
 from sys import argv
 
-import requests
-
 if __name__ == "__main__":
-    if len(argv) != 2:
-        exit()
+
     emp_id = argv[1]
-    response = requests.get(
-        'get',
-        'https://jsonplaceholder.typicode.com/users/{}/todos'.format(emp_id))
-    res = requests.get('get',
-                       'https://jsonplaceholder.typicode.com/users/{}'
-                       .format(emp_id))  # list of dicts
-    todo_list = json.loads(response.text)
-    employee_name = json.loads(res.text).get('name')
+    todo_list = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
+                             .format(emp_id)).json()
+    employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                            .format(emp_id)).json()
+    employee_name = employee.get('name')
     total_todos = len(todo_list)
     list_completed_todos = [el for el in todo_list if el.get('completed')]
     completed_todos = len(list_completed_todos)

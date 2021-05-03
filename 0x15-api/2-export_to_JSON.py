@@ -1,25 +1,20 @@
 #!/usr/bin/python3
 """ requests module """
 import json
+import requests
 from sys import argv
 
-import requests
-
 if __name__ == "__main__":
-    if len(argv) != 2:
-        exit()
 
     emp_id = argv[1]
     with open('todo_all_employees.json', mode='w') as employee_file:
-        response = requests.get(
-            'get',
-            'https://jsonplaceholder.typicode.com/users/{}/todos'.format(emp_id))
-        res = requests.get('get',
-                           'https://jsonplaceholder.typicode.com/users/{}'
-                           .format(emp_id))  # list of dicts
-        todo_list = json.loads(response.text)
-        employee_name = json.loads(res.text).get('name')
-        employee_username = json.loads(res.text).get('username')
+        todo_list = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
+                                 .format(emp_id)).json()
+        employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                                .format(emp_id)).json()
+
+        employee_name = employee.get('name')
+        employee_username = employee.get('username')
 
         array_todo = []
         for todo in todo_list:
