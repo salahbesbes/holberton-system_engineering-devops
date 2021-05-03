@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ requests module """
 import json
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == "__main__":
     if len(argv) != 2:
