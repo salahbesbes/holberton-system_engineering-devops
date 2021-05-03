@@ -7,7 +7,7 @@ from sys import argv
 if __name__ == "__main__":
 
     emp_id = argv[1]
-    with open('todo_all_employees.json', mode='w') as employee_file:
+    with open('{}.json'.format(emp_id), mode='w') as employee_file:
         todo_list = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
                                  .format(emp_id)).json()
         employee = requests.get('https://jsonplaceholder.typicode.com/users/{}'
