@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # create a new user (without password) and grant it all root privilage
 username=$1
-sudo whoami -u "$username"
+sudo -u "$username" whoami
 # su -c whoami "$newuser"
