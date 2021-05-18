@@ -42,12 +42,11 @@ def search_in_titles(subreddit, word_list, occurrence, after=True):
             # delete any item have  val == 0
             result = {key: val for key,
                       val in result.items() if val != 0}
-            
             for key, val in sorted(result.items(), key=lambda el: el[1], reverse=True):
                 print('{}: {}'.format(key, val))
 
     except Exception:
-        pass
+        print("")
 
 
 def count_words(subreddit, word_list):
