@@ -4,8 +4,8 @@ import requests
 
 
 def top_ten(subreddit):
-    url = "https://www.reddit.com/r/{}/hot.json".format(
-        subreddit)
+    url = "https://www.reddit.com/r/{}/{post_type}.json".format(
+        subreddit, post_type='hot')
     params = {'limit': 10}
 
     response = requests.get(url,
