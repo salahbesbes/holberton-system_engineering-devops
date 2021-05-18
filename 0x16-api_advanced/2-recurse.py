@@ -25,7 +25,7 @@ def get_title(subreddit, hot_list, after=True):
 
         return hot_list
     except Exception:
-        print(None)
+        return None
 
 
 def recurse(subreddit, hot_list=[]):
