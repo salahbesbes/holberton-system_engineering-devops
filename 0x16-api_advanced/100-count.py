@@ -17,7 +17,7 @@ def search_occurence(title, occurrence):
     return occurrence
 
 
-def search_in_titles(subreddit, word_list, occurrence, after=True):
+def search_in_titles(subreddit, occurrence, word_list, after=True):
     url = "https://www.reddit.com/r/{}/{post_type}.json".format(
         subreddit, post_type='hot')
     params = {'after': after,
@@ -47,7 +47,7 @@ def search_in_titles(subreddit, word_list, occurrence, after=True):
                 print('{}: {}'.format(key, val))
 
     except Exception:
-        pass
+        print()
 
 
 def count_words(subreddit, word_list):
@@ -55,4 +55,4 @@ def count_words(subreddit, word_list):
     search = [re.sub(r'[^a-z]', '', w.lower()) for w in word_list]
     search = set(search)
     occurrence = {key: 0 for key in search}
-    return search_in_titles(subreddit, search, occurrence)
+    return search_in_titles(subreddit, occurrence, search=[])
