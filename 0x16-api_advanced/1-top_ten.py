@@ -6,7 +6,7 @@ import requests
 def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/new.json".format(
         subreddit)
-    params = {'limit': 12}
+    params = {'limit': 10}
 
     response = requests.get(url,
                             headers={"User-agent": "Any thing"},
