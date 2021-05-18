@@ -46,7 +46,7 @@ def search_in_titles(subreddit, word_list, occurrence, after=True):
                 print('{}: {}'.format(key, val))
 
     except Exception:
-        print("")
+        pass
 
 
 def count_words(subreddit, word_list):
