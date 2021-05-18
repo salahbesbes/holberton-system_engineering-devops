@@ -43,7 +43,7 @@ def search_in_titles(subreddit, word_list, occurrence, after=True):
             result = {key: val for key,
                       val in result.items() if val != 0}
 
-            for key, val in result.items():
+            for key, val in sorted(result.items(), key=lambda el: el[1], reverse=True):
                 print('{}: {}'.format(key, val))
 
     except Exception:
@@ -52,7 +52,7 @@ def search_in_titles(subreddit, word_list, occurrence, after=True):
 
 def count_words(subreddit, word_list):
 
-    search = [re.sub(r'[^a-z]', '', w.lower())for w in word_list]
+    search = [re.sub(r'[^a-z]', '', w.lower()) for w in word_list]
     search = set(search)
     occurrence = {key: 0 for key in search}
     return search_in_titles(subreddit, search, occurrence)
