@@ -4,7 +4,7 @@ import requests
 
 
 def top_ten(subreddit):
-    url = "https://www.reddit.com/r/{}/new.json".format(
+    url = "https://www.reddit.com/r/{}/hot.json".format(
         subreddit)
     params = {'limit': 10}
 
