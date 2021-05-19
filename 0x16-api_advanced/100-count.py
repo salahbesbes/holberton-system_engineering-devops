@@ -45,7 +45,7 @@ def search_in_titles(subreddit, word_list, occurrence, after=True):
             # for key, val in sorted(result.items(),
             #                        key=lambda el: el[1], reverse=True):
             #     print('{}: {}'.format(key, val))
-            print('OK')
+            print('OK', end="")
 
     except Exception:
         pass
